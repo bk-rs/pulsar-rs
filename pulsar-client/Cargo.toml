@@ -1,0 +1,40 @@
+[package]
+name = "pulsar-client"
+version = "0.0.1"
+authors = ["vkill <vkill.net@gmail.com>"]
+edition = "2018"
+description = "Pulsar client"
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/bk-rs/pulsar-rs"
+homepage = "https://github.com/bk-rs/pulsar-rs"
+documentation = "https://docs.rs/pulsar-client"
+keywords = []
+categories = []
+readme = "README.md"
+
+[features]
+default = ["tokio_io"]
+
+futures_io = ["futures-x-io/futures_util_io", "futures-x-io-timeoutable/futures_io"]
+tokio02_io = ["futures-x-io/tokio02_io_util", "futures-x-io-timeoutable/tokio02_io"]
+tokio_io = ["futures-x-io/tokio_io_util", "futures-x-io-timeoutable/tokio_io"]
+
+[dependencies]
+pulsar-binary-protocol-spec = { version = "0.0", features = ["with-asynchronous"], path = "../pulsar-binary-protocol-spec" }
+
+futures-x-io = { version = "0.3", default-features = false, features = [], optional = true }
+futures-x-io-timeoutable = { version = "0.3", default-features = false, features = [], optional = true }
+
+futures-util = { version = "0.3", default-features = false, features = [] }
+thiserror = { version = "1.0", default-features = false, features = [] }
+
+log = { version = "0.4", default-features = false, features = [] }
+
+[package.metadata.cargo-all-features]
+skip_feature_sets = [
+    ["futures_io", "tokio02_io"],
+    ["futures_io", "tokio_io"],
+
+    ["tokio02_io", "tokio_io"],
+]
+skip_optional_dependencies = true

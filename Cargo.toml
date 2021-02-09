@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "demos/tokio",
+    "pulsar-binary-protocol-spec",
+    "pulsar-client",
+]

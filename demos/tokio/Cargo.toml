@@ -1,0 +1,22 @@
+[package]
+name = "pulsar-demo-tokio"
+version = "0.1.0"
+authors = ["vkill <vkill.net@gmail.com>"]
+edition = "2018"
+
+[[bin]]
+name = "full"
+path = "src/full.rs"
+
+[dependencies]
+pulsar-binary-protocol-spec = { path = "../../pulsar-binary-protocol-spec", version = "0.0", default-features = false, features = ["with-compression-lz4", "with-compression-zlib"] }
+pulsar-client = { path = "../../pulsar-client", version = "0.0", default-features = false, features = ["tokio_io"] }
+
+tokio = { version = "1.0", default-features = false, features = ["net", "macros", "rt-multi-thread", "time"] }
+
+chrono = "0.4"
+futures-util = "0.3"
+fastrand = "1.4"
+
+env_logger = "0.8"
+log = "0.4"
