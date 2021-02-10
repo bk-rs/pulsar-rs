@@ -8,6 +8,7 @@ pub use futures_channel;
 #[macro_use]
 extern crate paste;
 
+pub mod broker_service_url;
 pub mod client_channel;
 pub mod client_channel_messages;
 pub mod client_half_requests;

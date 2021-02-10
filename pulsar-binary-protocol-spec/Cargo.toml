@@ -29,6 +29,7 @@ crc32c = { version = "0.6", default-features = false, features = [] }
 
 chrono = { version = "0.4", default-features = false, features = ["clock"] }
 thiserror = { version = "1.0", default-features = false, features = [] }
+url = { version = "2.2", default-features = false, features = [] }
 
 futures-channel = { version = "0.3", default-features = false, features = ["alloc"], optional = true }
 async-channel = { version = "1.5", default-features = false, features = [], optional = true }
